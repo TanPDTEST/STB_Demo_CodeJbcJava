@@ -15,6 +15,12 @@
     <artifactId>STB_Demo_CodeJbcJava</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>tafj-project</packaging>
+    
+    <properties>
+        <tafjHome>${env.TAFJ_HOME}</tafjHome>
+            <t24lib>${env.T24_HOME}/t24lib</t24lib>
+        <t24version>22</t24version>
+    </properties>
 
     <build>
 		<finalName>STB_Demo_CodeJbcJava</finalName>
