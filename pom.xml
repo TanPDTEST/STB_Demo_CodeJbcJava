@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- <parent> <groupId>com.temenos.maven</groupId> <artifactId>dsf-core-parent</artifactId> 
+        <version>1.0.0-SNAPSHOT</version> </parent> -->
+        
+    <parent>
+        <groupId>demo.cicd.dsf</groupId>
+        <artifactId>STBParent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>demo.cicd.dsf</groupId>
+    <artifactId>STB_Demo_CodeJbcJava</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>tafj-project</packaging>
+
+    <build>
+		<finalName>STB_Demo_CodeJbcJava</finalName>
+        <plugins>
+            <!-- Clean existing java files -->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${basedir}/gen/tafj/java</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>process-resources</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/classes/INSERTS</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/src/main/jbc</directory>
+									<includes>
+										<include>**/I_*</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+            <plugin>
+                <groupId>com.temenos.tafj</groupId>
+                <artifactId>tafj-maven-plugin</artifactId>
+
+                <configuration>
+                    <javaDir combine.self="override">${basedir}/gen/tafj/java</javaDir>
+                    <basicDir combine.self="override">${basedir}/src/main/jbc</basicDir>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.temenos.tafj</groupId>
+            <artifactId>TAFJCommon</artifactId>
+            <version>${t24version}</version>
+            <scope>system</scope>
+            <systemPath>${tafjHome}/lib/TAFJCommon.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.temenos.tafj</groupId>
+            <artifactId>TAFJCompiler</artifactId>
+            <version>${t24version}</version>
+            <scope>system</scope>
+            <systemPath>${tafjHome}/lib/TAFJCompiler.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.temenos.tafj</groupId>
+            <artifactId>TAFJAPICommon</artifactId>
+            <version>${t24version}</version>
+            <scope>system</scope>
+            <systemPath>${tafjHome}/lib/TAFJAPICommon.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.temenos.tafj</groupId>
+            <artifactId>TAFJClient</artifactId>
+            <version>${t24version}</version>
+            <scope>system</scope>
+            <systemPath>${tafjHome}/lib/TAFJClient.jar</systemPath>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.temenos.t24</groupId>
+            <artifactId>EB_TemplateHook</artifactId>
+            <version>${t24version}</version>
+            <scope>system</scope>
+            <systemPath>${t24Lib}/EB_TemplateHook.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.temenos.t24</groupId>
+            <artifactId>ST_CurrencyConfig</artifactId>
+            <version>${t24version}</version>
+            <scope>system</scope>
+            <systemPath>${t24Lib}/ST_CurrencyConfig.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.temenos.t24</groupId>
+            <artifactId>EB_Security</artifactId>
+            <version>${t24version}</version>
+            <scope>system</scope>
+            <systemPath>${t24Lib}/EB_Security.jar</systemPath>
+        </dependency>
+
+    </dependencies>
+
+</project>
