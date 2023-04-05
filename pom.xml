@@ -99,7 +99,7 @@
             <systemPath>${tafjHome}/lib/TAFJClient.jar</systemPath>
         </dependency>
 
-
+	<!-- T24 libs -->
         <dependency>
             <groupId>com.temenos.t24</groupId>
             <artifactId>EB_TemplateHook</artifactId>
@@ -107,6 +107,14 @@
             <scope>system</scope>
             <systemPath>${t24Lib}/EB_TemplateHook.jar</systemPath>
         </dependency>
+	<dependency>
+            <groupId>com.temenos.t24</groupId>
+            <artifactId>EB_SystemTables</artifactId>
+            <version>${t24version}</version>
+            <scope>system</scope>
+            <systemPath>${t24Lib}/EB_SystemTables.jar</systemPath>
+        </dependency>
+	    
         <dependency>
             <groupId>com.temenos.t24</groupId>
             <artifactId>ST_CurrencyConfig</artifactId>
