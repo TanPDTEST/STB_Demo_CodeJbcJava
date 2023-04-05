@@ -16,12 +16,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>tafj-project</packaging>
     
-    <properties>
-        <tafjHome>${env.TAFJ_HOME}</tafjHome>
-            <t24lib>${env.T24_HOME}/t24lib</t24lib>
-        <t24version>22</t24version>
-    </properties>
-
     <build>
 		<finalName>STB_Demo_CodeJbcJava</finalName>
         <plugins>
@@ -111,21 +105,21 @@
             <artifactId>EB_TemplateHook</artifactId>
             <version>${t24version}</version>
             <scope>system</scope>
-            <systemPath>${t24lib}/EB_TemplateHook.jar</systemPath>
+            <systemPath>${t24Lib}/EB_TemplateHook.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.temenos.t24</groupId>
             <artifactId>ST_CurrencyConfig</artifactId>
             <version>${t24version}</version>
             <scope>system</scope>
-            <systemPath>${t24lib}/ST_CurrencyConfig.jar</systemPath>
+            <systemPath>${t24Lib}/ST_CurrencyConfig.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.temenos.t24</groupId>
             <artifactId>EB_Security</artifactId>
             <version>${t24version}</version>
             <scope>system</scope>
-            <systemPath>${t24lib}/EB_Security.jar</systemPath>
+            <systemPath>${t24Lib}/EB_Security.jar</systemPath>
         </dependency>
 
     </dependencies>
